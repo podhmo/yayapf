@@ -17,6 +17,12 @@ supporting below format.
   )
 
 
+install
+
+.. code-block:: bash
+
+  pip install git+https://github.com/podhmo/yayapf
+
 sample .style.yapf
 
 .. code-block::
