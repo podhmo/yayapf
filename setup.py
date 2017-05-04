@@ -2,7 +2,7 @@
 
 import os
 import sys
-
+import fastentrypoints
 
 from setuptools import setup, find_packages
 here = os.path.abspath(os.path.dirname(__file__))
@@ -30,7 +30,7 @@ testing_extras = tests_require + [
 ]
 
 setup(name='yayapf',
-      version='0.0',
+      version='0.0.1',
       description='yet another yapf',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
@@ -52,5 +52,7 @@ setup(name='yayapf',
       tests_require=tests_require,
       test_suite="yayapf.tests",
       entry_points="""
+      [console_scripts]
+      yayapf=yayapf:main
 """)
 
