@@ -7,6 +7,7 @@ def monkey_patch(cls):
     def _monkey_patch(method):
         setattr(cls, method.__name__, method)
         return method
+
     return _monkey_patch
 
 
@@ -49,6 +50,7 @@ def Visit_import_as_names(self, node):
 def main():
     import yapf
     yapf.run_main()
+
 
 if __name__ == "__main__":
     main()
