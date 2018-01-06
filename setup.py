@@ -25,7 +25,7 @@ testing_extras = tests_require + []
 
 setup(
     name='po-yayapf',
-    version='0.0.1',
+    version='0.0.2',
     description='yet another individual yapf',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
