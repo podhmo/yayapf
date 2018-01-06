@@ -1,3 +1,5 @@
+import os.path
+import sys
 from lib2to3.pgen2 import token
 from lib2to3 import pytree
 from yapf.yapflib import pytree_unwrapper as w
@@ -47,7 +49,26 @@ def Visit_import_as_names(self, node):
     self.DefaultNodeVisit(node)
 
 
+STYLE = """\
+[style]
+based_on_style = pep8
+column_limit = 100
+dedent_closing_brackets=true
+spaces_around_power_operator = true
+split_arguments_when_comma_terminated = true
+join_multiple_lines = false\
+"""
+
+
 def main():
+    stylepath = os.path.join(os.environ.get("HOME"), ".config/yapf/style")
+    if not os.path.exists(stylepath):
+        os.makedirs(os.path.dirname(stylepath), exist_ok=True)
+        print("{path} is not found, ... created".format(path=stylepath), file=sys.stderr)
+
+        with open(stylepath, "w") as wf:
+            wf.write(STYLE)
+
     import yapf
     yapf.run_main()
 
